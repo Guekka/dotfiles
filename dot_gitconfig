@@ -1,0 +1,81 @@
+[alias]
+		assume = update-index --assume-unchanged
+		bd  = branch -d      # Delete a branch only if it has been merged
+		bD = branch -D
+		bdm = "!git branch --merged | grep -v '*' | xargs -n 1 git branch -d" # Remove all merged branches
+		br = branch
+		ci = commit
+        cia = commit --amend
+		cl = clone
+		co = checkout
+        cm = commit -m
+		cp = cherry-pick
+		diff = diff --word-diff
+		dc = diff --cached
+		dl = "!git ll -1"
+		dlc = diff --cached HEAD^
+		f = "!git ls-files | grep -i"
+		fe   = fetch -p       # Fetch from a repository and prune any remote-tracking references that no longer exist on the remote.
+        filelog = log -u
+		grep = grep -Ii
+		gr = grep -Ii
+		gra = "!f() { A=$(pwd) && TOPLEVEL=$(git rev-parse --show-toplevel) && cd $TOPLEVEL && git grep --full-name -In $1 | xargs -I{} echo $TOPLEVEL/{} && cd $A; }; f"
+		la = "!git config -l | grep alias | cut -c 7-"
+        last = log -1 HEAD --stat
+        ll = log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate --numstat
+        ls = log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate
+		p = push
+		pf = push --force-with-lease
+		po = "!git push --set-upstream origin \"$(git rev-parse --abbrev-ref HEAD)\""
+		pof = git po --force-with-lease
+		r = reset
+		r1 = reset HEAD^
+		r2 = reset HEAD^^
+		rh = reset --hard
+		rh1 = reset HEAD^ --hard
+		rh2 = reset HEAD^^ --hard
+		rank = shortlog -sn --no-merges # Top contributors
+		sl = stash list
+		sa = stash apply
+		sp = stash pop
+		ss = stash save
+        st = status -sb
+		update = "!git checkout $@ && git pull && git checkout - && git rebase $@"
+		upd = update dev
+[branch]
+        autosetuprebase = always
+[core]
+        autocrlf = false
+        compression = 0
+[credential]
+        helper = cache --timeout=3600
+[help]
+        autocorrect = 1
+[rerere]
+        enabled = true
+[user]
+        email = 39066502+Guekka@users.noreply.github.com
+        name = G'k
+
+[color]
+    branch = auto
+    diff = auto
+    status = auto
+
+[color "branch"]
+    current = red reverse
+    local = blue
+    remote = green
+
+[color "diff"]
+    meta = yellow
+    frag = magenta
+    old = red bold
+    new = green
+    plain = white
+
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+

@@ -1,0 +1,5 @@
+# Safe aliases for cp and mv
+alias rm='mv -t ~/.trash'
+alias cp='cp -i'
+alias mv='mv -i'
+
