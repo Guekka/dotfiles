@@ -585,10 +585,12 @@ $0
 endsnippet
 
 snippet compfun "Composed function" iA
-\begin{NiceTabular}{ccccc}
-	$$1$ & $\frightarrow{ $2}$ & $$3$ & $\frightarrow{ $4}$ & $$5$ \\\\
-	$${6:x}$ & $\longmapsto$ & $$7$ & $\longmapsto$ & $$8$ 
-\end{NiceTabular}$0
+\begin{table}[htpb]
+	\begin{NiceTabular}{ccccc}
+		$$1$ & $\frightarrow{ ${2: }}$ & $$3$ & $\frightarrow{ ${4: }}$ & $$5$ \\\\
+		$${6:x}$ & $\longmapsto$ & $$7$ & $\longmapsto$ & $$8$ 
+	\end{NiceTabular}
+\end{table}$0
 endsnippet
 
 snippet inlfun "Inline function" iA
