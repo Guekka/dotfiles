@@ -19,8 +19,6 @@ let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 Plug 'honza/vim-snippets'
 
-Plug 'ervandew/supertab'
-
 Plug 'lervag/vimtex'
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
@@ -32,24 +30,19 @@ set conceallevel=1
 let g:tex_conceal='abdmg'
 hi Conceal ctermbg=none
 
-
 Plug '907th/vim-auto-save'
 let g:auto_save=1
 let g:auto_save_events=["InsertLeave", "CursorHold", "CursorHoldI"]
 
-" Disable vim fallback
+" Disable vim indent
 let g:autoformat_autoindent = 0
 let g:autoformat_retab = 0
-let g:autoformat_remove_trailing_spaces = 0
 
 Plug 'joshdick/onedark.vim',{'name':'onedark'}
 
 Plug 'itchyny/lightline.vim'
 let s:hidden_all = 1
 set noshowmode
-
-"Auto pair (, {
-Plug 'Krasjet/auto.pairs'
 
 " Initialize plugin system
 call plug#end()
@@ -66,9 +59,6 @@ set complete+=kspell
 " Duplicate paragraph
 vmap <C-p> y'>p
 
-" Replace all occurrences of currently selected text
-vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
-
 " Right and left arrow go to next/previous line
 set whichwrap+=<,>,[,]
 
@@ -78,7 +68,7 @@ set ve+=onemore
 " Auto break line after 90 chars
 set tw=90
 
-" Ctrl F to edit figures in Latex mode
+" Ctrl F to edit figures in Latex mode (see Gilles Castel blog)
 inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
 nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
 
